@@ -7,20 +7,14 @@
 
 using namespace std;
 
-
-
-
-
-
-
 int main()
 {
   int menuChoice;
   string filename;
   bitmapEditor image;
   vector<vector<Pixel> > bmp;
-  cout << "****************************" << endl;
-  cout << "****************************" << endl;
+  cout << "*******************************************************" << endl;
+  cout << "*******************************************************" << endl;
   cout << "" << endl;
   cout << "Hello, welcome to Bitmap photo editor, "
     << "what is the name of the photo you would like to edit?" << endl;
@@ -41,7 +35,7 @@ int main()
     } while(validBmp == false);
     bmp = image.toPixelMatrix();
   }
-  cout << filename << "has been loaded. It is " << bmp[0].size() << "pixels wide and " << bmp.size() << " pixels high." << endl;
+  cout << filename << " has been loaded. It is " << bmp[0].size() << " pixels wide and " << bmp.size() << " pixels high." << endl;
   do{
   cout << "Options: " << endl;
   cout << "(1)OldTimeyPhoto" << endl;
@@ -49,27 +43,32 @@ int main()
   cout << "(3)Warmth/Cold" << endl;
   cout << "(4)Saturation" << endl;
   cout << "(5)Border" << endl;
-  cout << "(6)Quit" << endl;
+  cout << "(6)Save and Quit" << endl;
   cin >> menuChoice;
   if(menuChoice == 1)
   {
     bmp = image.oldTimeyPhoto();
+    cout << "Done" << endl;
   }
   else if(menuChoice == 2)
   {
     bmp = image.brightness();
+    cout << "Done" << endl;
   }
   else if(menuChoice == 3)
   {
     bmp = image.warmth();
+    cout << "Done" << endl;
   }
   else if(menuChoice == 4)
   {
     bmp = image.saturation();
+    cout << "Done" << endl;
   }
   else if(menuChoice == 5)
   {
     bmp = image.border();
+    cout << "Done" << endl;
   }
   else
   {
