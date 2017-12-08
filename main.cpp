@@ -8,6 +8,7 @@
 using namespace std;
 
 void showMenu(void);
+void choice(int&);
 
 int main()
 {
@@ -20,7 +21,8 @@ int main()
   cout << "*******************************************************" << endl;
   cout << "" << endl;
   cout << "Hello, welcome to Bitmap photo editor, "
-    << "what is the name of the photo you would like to edit? (note: If you have a .txt file with the filename, enter 'file')" << endl;
+    << "what is the name of the photo you would like to edit?" << endl;
+  cout <<"(note: If you have a .txt file with the filename, enter 'file')" << endl;
   cin >> filename;
   if(filename == "file")
   {
@@ -37,21 +39,21 @@ int main()
     }
     else{
       do{
-      cout << "Unable to open .txt file, please enter a valid .txt filename." << endl;
-      cin >> txtFilename;
-      ifstream infile (txtFilename);
-      validTxtFile = infile.is_open();
-      if(infile.is_open() )
-      {
-        infile >> bmpName;
-        infile.close();
-        filename = bmpName;
-      }
+        cout << "Unable to open .txt file, please enter a valid .txt filename." << endl;
+        cin >> txtFilename;
+        ifstream infile (txtFilename);
+        validTxtFile = infile.is_open();
+        if(infile.is_open() )
+        {
+          infile >> bmpName;
+          infile.close();
+          filename = bmpName;
+        }
       }while(validTxtFile == false);
-  }
+    }
   }
   image.open(filename);
-  
+
   bool validBmp = image.isImage();
   if( validBmp == true)
   {
@@ -70,7 +72,7 @@ int main()
   cout << filename << " has been loaded. It is " << bmp[0].size() << " pixels wide and " << bmp.size() << " pixels high." << endl;
   do{
     showMenu();
-    cin >> menuChoice;
+    choice(menuChoice);
     if(menuChoice == 1)
     {
       bmp = image.oldTimeyPhoto();
@@ -95,17 +97,11 @@ int main()
       image.fromPixelMatrix(bmp);
       cout << "Done" << endl;
     }
-    else if(menuChoice == 5)
-    {
-      bmp = image.border();
-      image.fromPixelMatrix(bmp);
-      cout << "Done" << endl;
-    }
     else
     {
       image.save("editedPhoto.bmp");
     }
-  }while(menuChoice < 6);
+  }while(menuChoice < 5);
 
 }
 
@@ -116,6 +112,10 @@ void showMenu(void)
   cout << "(2)Brightness" << endl;
   cout << "(3)Warmth/Cold" << endl;
   cout << "(4)Saturation" << endl;
-  cout << "(5)Border" << endl;
-  cout << "(6)Save and Quit" << endl;
+  cout << "(5)Save and Quit" << endl;
+} 
+
+void choice(int & c)
+{
+  cin >> c;
 }
