@@ -7,6 +7,8 @@
 
 using namespace std;
 
+int getSum(int, int, int);
+
 vector<vector<Pixel> > bitmapEditor :: oldTimeyPhoto(void){
   vector<vector<Pixel> > oldTimeyBmp;
   Pixel rgb;
@@ -25,7 +27,7 @@ vector<vector<Pixel> > bitmapEditor :: oldTimeyPhoto(void){
     for (int col = 0; col < oldTimeyBmp[row].size(); col++)
     {
       rgb = oldTimeyBmp[row][col];
-      int sum = rgb.red + rgb.green + rgb.blue;
+      int sum = getSum(rgb.red, rgb.green, rgb.blue);
       int avg = sum / 3;
       if (choiceGrain == 'y' || choiceGrain == 'y')
       {
@@ -172,5 +174,11 @@ vector<vector<Pixel> > bitmapEditor :: saturation(void){
     }
   }
   return saturationBmp;
+}
+
+int getSum(int r, int g, int c)
+{
+    int s = r + g + c;
+    return s;
 }
 
