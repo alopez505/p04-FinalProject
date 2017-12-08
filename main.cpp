@@ -102,6 +102,7 @@ int main()
       image.save("editedPhoto.bmp");
     }
   }while(menuChoice < 5);
+  cout << "Saved!" << endl;
 
 }
 
