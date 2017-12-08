@@ -15,7 +15,6 @@ class bitmapEditor : public Bitmap
     vector<vector<Pixel> > brightness (void);
     vector<vector<Pixel> > warmth (void);
     vector<vector<Pixel> > saturation (void);
-    vector<vector<Pixel> > border (void);
 
 };
 #endif
