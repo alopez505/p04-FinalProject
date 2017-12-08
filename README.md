@@ -10,12 +10,12 @@ I used mutiple if, else if, and else control flow options throughout my project,
 
 ## Iteration
 [main.cpp lines 76-104](/main.cpp)
-[bitmapEditor.cpp lines 23-48](/bitmapEditor.cpp)
+[bitmapEditor.cpp lines 25-48](/bitmapEditor.cpp)
 I used a do while loop multiple times in my main.cpp file, the example I linked shows how I used a do while loop to continue to show the menu while menuChoice is less than 5.
 I used a for loop for every function in my bitmap.cpp file to go through the matrix of pixels and edit each Pixel.
 
 ## Data Structure
-[bitmapEditor.cpp line 11](/bitmapEditor.cpp)
+[bitmapEditor.cpp line 12](/bitmapEditor.cpp)
 I created a matrix (vector of vector) of pixels to represent a Bitmap image because Bitmap images are 2 dimentional grids of Pixels containing rgb values.
 
 ## Function
