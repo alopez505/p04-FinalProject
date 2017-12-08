@@ -7,19 +7,51 @@
 
 using namespace std;
 
+void showMenu(void);
+
 int main()
 {
   int menuChoice;
   string filename;
   bitmapEditor image;
   vector<vector<Pixel> > bmp;
+  bool validTxtFile;
   cout << "*******************************************************" << endl;
   cout << "*******************************************************" << endl;
   cout << "" << endl;
   cout << "Hello, welcome to Bitmap photo editor, "
-    << "what is the name of the photo you would like to edit?" << endl;
+    << "what is the name of the photo you would like to edit? (note: If you have a .txt file with the filename, enter 'file')" << endl;
   cin >> filename;
+  if(filename == "file")
+  {
+    string txtFilename;
+    string bmpName;
+    cout << "What is the name of the text file that contains the name of the file you would like to load?" << endl;
+    cin >> txtFilename;
+    ifstream file (txtFilename);
+    if(file.is_open() )
+    {
+      file >> bmpName;
+      file.close();
+      filename = bmpName;
+    }
+    else{
+      do{
+      cout << "Unable to open .txt file, please enter a valid .txt filename." << endl;
+      cin >> txtFilename;
+      ifstream infile (txtFilename);
+      validTxtFile = infile.is_open();
+      if(infile.is_open() )
+      {
+        infile >> bmpName;
+        infile.close();
+        filename = bmpName;
+      }
+      }while(validTxtFile == false);
+  }
+  }
   image.open(filename);
+  
   bool validBmp = image.isImage();
   if( validBmp == true)
   {
@@ -37,6 +69,48 @@ int main()
   }
   cout << filename << " has been loaded. It is " << bmp[0].size() << " pixels wide and " << bmp.size() << " pixels high." << endl;
   do{
+    showMenu();
+    cin >> menuChoice;
+    if(menuChoice == 1)
+    {
+      bmp = image.oldTimeyPhoto();
+      image.fromPixelMatrix(bmp);
+      cout << "Done" << endl;
+    }
+    else if(menuChoice == 2)
+    {
+      bmp = image.brightness();
+      image.fromPixelMatrix(bmp);
+      cout << "Done" << endl;
+    }
+    else if(menuChoice == 3)
+    {
+      bmp = image.warmth();
+      image.fromPixelMatrix(bmp);
+      cout << "Done" << endl;
+    }
+    else if(menuChoice == 4)
+    {
+      bmp = image.saturation();
+      image.fromPixelMatrix(bmp);
+      cout << "Done" << endl;
+    }
+    else if(menuChoice == 5)
+    {
+      bmp = image.border();
+      image.fromPixelMatrix(bmp);
+      cout << "Done" << endl;
+    }
+    else
+    {
+      image.save("editedPhoto.bmp");
+    }
+  }while(menuChoice < 6);
+
+}
+
+void showMenu(void)
+{
   cout << "Options: " << endl;
   cout << "(1)OldTimeyPhoto" << endl;
   cout << "(2)Brightness" << endl;
@@ -44,37 +118,4 @@ int main()
   cout << "(4)Saturation" << endl;
   cout << "(5)Border" << endl;
   cout << "(6)Save and Quit" << endl;
-  cin >> menuChoice;
-  if(menuChoice == 1)
-  {
-    bmp = image.oldTimeyPhoto();
-    cout << "Done" << endl;
-  }
-  else if(menuChoice == 2)
-  {
-    bmp = image.brightness();
-    cout << "Done" << endl;
-  }
-  else if(menuChoice == 3)
-  {
-    bmp = image.warmth();
-    cout << "Done" << endl;
-  }
-  else if(menuChoice == 4)
-  {
-    bmp = image.saturation();
-    cout << "Done" << endl;
-  }
-  else if(menuChoice == 5)
-  {
-    bmp = image.border();
-    cout << "Done" << endl;
-  }
-  else
-  {
-    image.fromPixelMatrix(bmp);
-    image.save("editedPhoto.bmp");
-  }
-  }while(menuChoice < 6);
-  
 }
