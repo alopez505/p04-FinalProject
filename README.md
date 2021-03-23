@@ -1,6 +1,6 @@
 # Info
 
-This code is used to edit images in **.bmp** format.
+This code is used to edit images in **.bmp** format. `machupicchu.bmp` is an example photo given.
 
 # Requirements
 
