@@ -1,3 +1,7 @@
+# Info
+
+This code is used to edit images in **.bmp** format.
+
 # Requirements
 
 ## Input / Output
