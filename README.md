@@ -1,4 +1,4 @@
-# Requirments
+# Requirements
 
 ## Input / Output
 [main.cpp lines 20-26](/main.cpp)
@@ -6,7 +6,7 @@ I used iostream functions (cin, cout) throughout my project to get user input an
 
 ## Control Flow
 [main.cpp lines 76-103](/main.cpp)
-I used mutiple if, else if, and else control flow options throughout my project, that specific link shows how i used control flow to get choose what function to use depending on the user input of int menuChoice.
+I used multiple if, else if, and else control flow options throughout my project, that specific link shows how i used control flow to get choose what function to use depending on the user input of int menuChoice.
 
 ## Iteration
 [main.cpp lines 76-104](/main.cpp)
@@ -16,7 +16,7 @@ I used a for loop for every function in my bitmap.cpp file to go through the mat
 
 ## Data Structure
 [bitmapEditor.cpp line 12](/bitmapEditor.cpp)
-I created a matrix (vector of vector) of pixels to represent a Bitmap image because Bitmap images are 2 dimentional grids of Pixels containing rgb values.
+I created a matrix (vector of vector) of pixels to represent a Bitmap image because Bitmap images are 2 dimensional grids of Pixels containing rgb values.
 
 ## Function
 [main.cpp lines 108-116](/main.cpp)
@@ -30,8 +30,9 @@ I used a pass-by-reference function to get the char of choice in the fourth link
 
 ## File IO
 [main.cpp lines 27-54](/main.cpp)
-I used instream to use a text file as a input to assign filename.
+I used instream to use a text file as an input to assign filename.
 
 ## Class
 [bitmapEditor.h lines 1-20](/bitmap.h)
 I created a class named bitmapEditor and it inherited all the traits of bitmap and I added extra functions.
+
