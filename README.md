@@ -1,7 +1,7 @@
 # Info
 
 This code is used to edit images in **.bmp** format. `machupicchu.bmp` is an example photo given.
-
+<!---
 # Requirements
 
 ## Input / Output
@@ -40,3 +40,4 @@ I used instream to use a text file as an input to assign filename.
 [bitmapEditor.h lines 1-20](/bitmap.h)
 I created a class named bitmapEditor and it inherited all the traits of bitmap and I added extra functions.
 
+-->
